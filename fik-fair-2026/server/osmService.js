@@ -31,7 +31,7 @@ export function createOsmService(fetcher = fetch, now = Date.now) {
     if (cached && expiresAt > now()) return cached;
     if (!pending) {
       pending = (async () => {
-        const response = await fetcher(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'TeduhRoute/1.0 (Sudirman-GBK prototype)' }, body: new URLSearchParams({ data: query }), signal: AbortSignal.timeout(25000) });
+        const response = await fetcher(endpoint, { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Teduh/1.0 (Sudirman-GBK prototype)' }, body: new URLSearchParams({ data: query }), signal: AbortSignal.timeout(25000) });
         if (!response.ok) throw new Error(`Overpass HTTP ${response.status}`);
         const result = normalizeOsm(await response.json());
         cached = result;

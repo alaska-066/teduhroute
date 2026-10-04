@@ -16,7 +16,7 @@ function localApi() {
     if (path === '/api/routes') return routesHandler(req, res);
     next();
   }); };
-  return { name: 'teduhroute-local-api', configureServer: install, configurePreviewServer: install };
+  return { name: 'teduh-local-api', configureServer: install, configurePreviewServer: install };
 }
 
 export default defineConfig(({mode}) => {

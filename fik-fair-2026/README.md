@@ -1,4 +1,4 @@
-# TeduhRoute
+# Teduh
 
 Prototipe FIK FAIR 2026 untuk eksplorasi jalur pejalan kaki yang lebih teduh di koridor Sudirman–Gelora Bung Karno. Mendukung SDG 11 dan SDG 13.
 
@@ -40,7 +40,7 @@ Kelengkapan OSM menentukan hasil. Jalan lokal dapat berupa garis tengah jalan, b
 
 Area editor/routing diperluas menjadi sekitar **2x luas awal** dengan pusat tetap (-6.22, 106.809). Panjang dan lebar masing-masing dikalikan sqrt(2), bukan 2. `src/lib/studyArea.js` menjadi sumber batas tunggal untuk editor, validasi, graph, dan query OSM. Wilayah unduhan OSM memakai buffer tambahan 0,0035 derajat (>380 m) di setiap sisi, melebihi batas proyeksi bayangan 300 m. Batas 8 titik, radius snapping 100 m, panjang rute 10 km, serta cache 6 jam tetap berlaku.
 
-Backup sebelum perubahan: `backups/teduhroute-before-area-2x-20261004-163810.zip`, dengan daftar SHA-256 di file `.manifest.json` di folder yang sama. Seluruh 43 file backup telah diverifikasi terhadap isi ZIP. Backup menyertakan sumber dan konfigurasi lokal; `node_modules`, `dist`, `.vercel`, serta folder backup dikecualikan. Untuk memulihkan, ekstrak ke folder terpisah, jalankan `npm install`, lalu `npm run dev`. Folder backup diabaikan Git agar tidak ikut dipublikasikan.
+Backup sebelum perubahan: arsip ZIP di folder `backups/` (nama historis sebelum rebranding), dengan daftar SHA-256 di file `.manifest.json` di folder yang sama. Seluruh 43 file backup telah diverifikasi terhadap isi ZIP. Backup menyertakan sumber dan konfigurasi lokal; `node_modules`, `dist`, `.vercel`, serta folder backup dikecualikan. Untuk memulihkan, ekstrak ke folder terpisah, jalankan `npm install`, lalu `npm run dev`. Folder backup diabaikan Git agar tidak ikut dipublikasikan.
 
 Smoke test data langsung pada 4 Oktober 2026: 6.976 objek OSM, 4.616 node graph dan 4.762 ruas. Pengambilan/normalisasi/graph awal sekitar 3,26 detik; routing default 146 ms dan contoh tujuan di wilayah tambahan 86 ms pada mesin pengujian. Angka ini bukan jaminan kecepatan di HP atau Vercel. Jaringan jalan tidak dikirim oleh `/api/osm` karena hanya diperlukan backend; browser menerima konteks peta saja.
 
